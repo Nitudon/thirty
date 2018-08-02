@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using System.Linq;
+using UniRx;
 
 public class FriendCollectionModel 
 {
@@ -10,13 +11,18 @@ public class FriendCollectionModel
         _friendList = new ReactiveCollection<FriendModel>();
     }
 
-    public void AddFriend()
+    public void AddFriend(FriendModel friend)
     {
-
+        _friendList.Add(friend);
     }
 
     public int GetFriendCount()
     {
         return _friendList.Count;
+    }
+
+    public int GetFrientTotalCount()
+    {
+        return _friendList.Select(x => x.FriendCount.Value).Sum();
     }
 }
