@@ -8,10 +8,10 @@ using UdonLib.Commons;
 public class GameRuleSystemPresenter : MonoBehaviour {
 
     [SerializeField]
-    private List<IInitializable> _initializables;
+    private List<InitializableMono> _initializables;
 
     [SerializeField]
-    private List<IAsyncInitializable> _asyncInitializables;
+    private List<AsyncInitializableMono> _asyncInitializables;
 
     private async void Start()
     {
