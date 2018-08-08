@@ -10,9 +10,12 @@ public class PlayerMoveUseCase
 
     private bool _isValid;
 
-    public PlayerMoveUseCase()
+    public PlayerMoveUseCase(PlayerInputHandler inputHandler)
     {
-        _inputHandler = new PlayerInputHandler();
+        _inputHandler = inputHandler;
+        _disposable = new CompositeDisposable();
+
+        _isValid = true;
     }
 
     public void BindMovement(RectTransform player)

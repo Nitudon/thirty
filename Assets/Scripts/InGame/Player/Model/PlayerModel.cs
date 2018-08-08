@@ -4,13 +4,13 @@ using UnityEngine;
 using UdonLib.Commons;
 
 
-public class PlayerModel : UdonBehaviour
+public class PlayerModel : IInitializable
 {
-    [SerializeField]
-    private Collider2D _playerCollision;
-    public Collider2D PlayerCollision => _playerCollision;
+    private FriendCollectionModel _friendModel;
+    public FriendCollectionModel FriendModel => _friendModel;
 
-    private readonly FriendCollectionModel _friends;
-
-
+    public void Initialize()
+    {
+        _friendModel = new FriendCollectionModel();
+    }
 }

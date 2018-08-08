@@ -7,22 +7,26 @@ using UniRx;
 using UniRx.Triggers;
 using Thirty.Enum;
 
-public class PlayerCollisionUseCase : IInitializable<PlayerModel>
+public class PlayerCollisionUseCase
 {
-    private PlayerModel _model;
+    private Collider2D _collider;
 
     private IObservable<CollisionType> _triggerEnterSubject;
     public IObservable<CollisionType> TriggerEnterSubject => _triggerEnterSubject;
 
-    public void Initialize(PlayerModel model)
+    public PlayerCollisionUseCase(Collider2D collider)
     {
-        _model = model;
+        _collider = collider;
+        _triggerEnterSubject = new Subject<CollisionType>();
+    }
 
+    public void SetObserver()
+    {
         _triggerEnterSubject =
-            _model
+            _collider
                 .OnTriggerEnter2DAsObservable()
                 .Select(x => x.GetComponent<CommonCollisionModel>())
                 .Where(x => x != null)
-                .Select(x => x.CollisionType);        
+                .Select(x => x.CollisionType);
     }
 }
