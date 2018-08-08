@@ -175,6 +175,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622387540 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114530272606446998, guid: cd37c924935b2a64aaf3a32cacd17d81,
+    type: 2}
+  m_PrefabInternal: {fileID: 1883442311}
+  m_Script: {fileID: 11500000, guid: eec40888d1e03034b8aa5bdd3feecddd, type: 3}
 --- !u!224 &1596612452 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224557816766797090, guid: cd37c924935b2a64aaf3a32cacd17d81,
@@ -306,11 +312,11 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1600, y: 900}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -547,6 +553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c33323d73b13745ad93eee7b91ebfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initializables:
+  - {fileID: 622387540}
+  _asyncInitializables: []
 --- !u!224 &1911167398
 RectTransform:
   m_ObjectHideFlags: 0
