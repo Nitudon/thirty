@@ -39,4 +39,9 @@ public class PlayerMoveUseCase
     {
         _isValid = valid;
     }
+
+    public void Dispose()
+    {
+        _disposable.Dispose();
+    }
 }

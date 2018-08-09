@@ -21,12 +21,13 @@ public class PlayerPresenter : InitializableMono
         _movementUseCase = new PlayerMoveUseCase(_inputHandler);
         _collisionUseCase = new PlayerCollisionUseCase(_view.PlayerCollision);
 
+        _collisionUseCase.SetObserver();
+
         Bind();
     }
 
     private void Bind()
     {
         _movementUseCase.BindMovement(_view.RectTransform);
-        _collisionUseCase.SetObserver();
     }
 }
