@@ -4,7 +4,7 @@
     {
         NONE,
         FRIEND,
-        ENEMY,
+        BLOCK,
         ITEM
     }
 }
