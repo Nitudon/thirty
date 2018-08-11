@@ -10,18 +10,18 @@ public class PlayerPresenter : InitializableMono
 
     [SerializeField]
     private PlayerInputHandler _inputHandler;
-
     private PlayerMoveUseCase _movementUseCase;
-    private PlayerCollisionUseCase _collisionUseCase;
+
+    [SerializeField]
+    private CommonCollisionModel _collisionModel;
 
     public override void Initialize()
     {
         _inputHandler.Initialize();    
 
         _movementUseCase = new PlayerMoveUseCase(_inputHandler);
-        _collisionUseCase = new PlayerCollisionUseCase(_view.PlayerCollision);
 
-        _collisionUseCase.SetObserver();
+        _collisionModel.SetObserver();
 
         Bind();
     }
