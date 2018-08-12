@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameRuleSystemUseCase
+public class InGameRuleUseCase
 {
-
-    private GameRuleModel _model;	
-
+    private InGameRuleModel _model;	
 }
