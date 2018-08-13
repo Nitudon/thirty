@@ -29,7 +29,12 @@ public class CommonCollisionModel : UdonBehaviour
         _onCollisionModelEnterAsObservable =
             _collider
                 .OnTriggerEnter2DAsObservable()
-                .Where(x => x != null)
+                .Where(x => x != null && x.enabled)
                 .Select(_ => _collisionType);
+    }
+
+    public void SetCollisionEnable(bool active)
+    {
+        _collider.enabled = false;
     }
 }
