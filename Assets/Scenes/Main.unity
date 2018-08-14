@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 95536410}
   - component: {fileID: 95536411}
   - component: {fileID: 95536412}
+  - component: {fileID: 95536414}
+  - component: {fileID: 95536413}
   m_Layer: 0
   m_Name: GameSceneSystem
   m_TagString: Untagged
@@ -169,6 +171,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3abc912c71f7c4dbebdb64d887e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &95536413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 95536409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 95536412}
+  - {fileID: 95536414}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 501714766}
+  _bindType: 0
+--- !u!114 &95536414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 95536409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eba6f7fc5dd98d4aa4a4344c22cd551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &312389995
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +238,6 @@ GameObject:
   m_Component:
   - component: {fileID: 501714765}
   - component: {fileID: 501714766}
-  - component: {fileID: 501714767}
   m_Layer: 0
   m_Name: DISystem
   m_TagString: Untagged
@@ -246,23 +276,6 @@ MonoBehaviour:
   _parentNewObjectsUnderRoot: 0
   _contractNames: []
   _parentContractNames: []
---- !u!114 &501714767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 501714764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 95536410}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 501714766}
-  _bindType: 0
 --- !u!1 &726564762
 GameObject:
   m_ObjectHideFlags: 0
