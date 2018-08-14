@@ -23,6 +23,6 @@ public class FriendCollectionModel
 
     public int GetFrientTotalCount()
     {
-        return _friendList.Select(x => x.FriendCount.Value).Sum();
+        return _friendList.Sum(x => x.FriendData.Count);
     }
 }

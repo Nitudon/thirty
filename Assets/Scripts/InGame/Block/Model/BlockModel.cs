@@ -5,8 +5,7 @@ using UdonLib.Commons;
 using UniRx;
 using Thirty.Data;
 
-public class FriendModel : UdonBehaviour
+public class BlockModel : UdonBehaviour
 {
-    private FriendData _friendData;
-    public FriendData FriendData => _friendData;
+    private BlockData _friendData;
 }
