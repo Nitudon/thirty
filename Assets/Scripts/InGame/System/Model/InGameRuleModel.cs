@@ -17,4 +17,9 @@ public class InGameRuleModel : InitializableMono
         _gameSpeed = new ReactiveProperty<float>();
         _gameLife = new ReactiveProperty<float>();
     }
+
+    public void DecrementLife()
+    {
+        _gameLife.Value -= _gameSpeed.Value;
+    }
 }
