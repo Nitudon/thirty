@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
-using UniRx;
+using Zenject;
 
 public class InGameRuleUseCase
 {
+    [Inject]
     private InGameRuleModel _model;
 
     private bool _isPlay;
     public bool IsPlay => _isPlay;
-
-    public InGameRuleUseCase(InGameRuleModel model)
-    {
-        _model = model;
-    }
 
     public void StartTimer()
     {
@@ -25,8 +21,8 @@ public class InGameRuleUseCase
             .AddTo(_model);
     }
 
-    public ReactiveProperty<int> GameTimer()
+    public ReactiveProperty<float> GameTimer()
     {
-        return _model.GameLife.Where(life => _isPlay && life > 0).Cast<float, int>().ToReactiveProperty();
+        return _model.GameLife.Where(life => _isPlay && life > 0).ToReactiveProperty().AddTo(_model);
     }
 }
