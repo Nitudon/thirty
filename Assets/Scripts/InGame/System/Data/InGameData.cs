@@ -1,17 +1,22 @@
 ﻿namespace Thirty.Data
 {
-    public struct PlayerData
+    public class PlayerData
     {
 
     }
 
-    public struct BlockData
+    public class BlockData
     {
         public int Count;
     }
 
-    public struct FriendData
+    public class FriendData
     {
         public int Count;
+
+        public void DecrementFriend(int count)
+        {
+            Count -= count;
+        }
     }
 }
