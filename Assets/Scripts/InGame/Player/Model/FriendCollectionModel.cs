@@ -1,28 +1,39 @@
 ﻿using System.Linq;
 using UniRx;
+using Thirty.Data;
 
 public class FriendCollectionModel 
 {
-    private readonly ReactiveCollection<FriendModel> _friendList;
-    public IReadOnlyReactiveCollection<FriendModel> FriendList => _friendList;
+    private readonly ReactiveCollection<FriendData> _friendList;
+    public IReadOnlyReactiveCollection<FriendData> FriendList => _friendList;
 
     public FriendCollectionModel()
     {
-        _friendList = new ReactiveCollection<FriendModel>();
+        _friendList = new ReactiveCollection<FriendData>();
     }
 
-    public void AddFriend(FriendModel friend)
+    public void AddFriend(FriendData friend)
     {
         _friendList.Add(friend);
     }
 
-    public int GetFriendCount()
+    public void PopFriend()
     {
-        return _friendList.Count;
+        _friendList.RemoveAt(_friendList.Count - 1);
     }
 
-    public int GetFrientTotalCount()
+    public void DecreaseFriend(int count)
     {
-        return _friendList.Sum(x => x.FriendData.Count);
+        while(count > 0)
+        {
+            var popFriend = _friendList.LastOrDefault();
+            if(popFriend == null || popFriend.Count < count)
+            {
+                // ゲーム終了通知
+            }
+
+            count -= popFriend.Count;
+            PopFriend();
+        }
     }
 }
