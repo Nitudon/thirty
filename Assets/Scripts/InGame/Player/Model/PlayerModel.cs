@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UdonLib.Commons;
-
+using UniRx;
 
 public class PlayerModel : IInitializable
 {
