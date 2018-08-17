@@ -21,7 +21,11 @@ public class InGameRulePresenter : InitializableMono
 
     public void Bind()
     { 
-        _useCase.GameTimer().Subscribe(x => _view.FillTimerImage(x / SystemConst.GAME_LIFE)).AddTo(_disposable);
+        _useCase
+            .GameTimer()
+            .Subscribe(x => _view.FillTimerImage(x / SystemConst.GAME_LIFE))
+            .AddTo(gameObject)
+            .AddTo(_disposable);
     }
 
     public void Dispose()

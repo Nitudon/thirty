@@ -6,8 +6,6 @@ public class PlayerMoveUseCase
     private PlayerInputHandler _inputHandler;
     private Vector2 _cachedPlayerAnchorPosition;
 
-    private CompositeDisposable _disposable;
-
     private bool _isValid;
 
     public PlayerMoveUseCase(PlayerInputHandler inputHandler)
@@ -18,20 +16,20 @@ public class PlayerMoveUseCase
         _isValid = true;
     }
 
-    public void BindMovement(RectTransform player)
+    public void BindMovement(RectTransform player, CompositeDisposable disposable)
     {
         _inputHandler
             .OnBeginDragPosition
             .Where(_ => _isValid)
             .Subscribe(_ => _cachedPlayerAnchorPosition = player.anchoredPosition)
-            .AddTo(_disposable)
+            .AddTo(disposable)
             .AddTo(player.gameObject);
 
         _inputHandler
             .DragDelta
             .Where(_ => _inputHandler.IsDragging && _isValid)
             .Subscribe(delta => player.anchoredPosition = _cachedPlayerAnchorPosition + delta)
-            .AddTo(_disposable)
+            .AddTo(disposable)
             .AddTo(player.gameObject);
     }
 

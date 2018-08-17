@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Thirty.Data;
 using UniRx;
 using Zenject;
 
@@ -6,17 +7,21 @@ public class PlayerCollisionUseCase
 {
     [Inject]
     private InGameCollisionModel _inGameCollisionModel;
-    private CommonCollisionModel _playerCollisionModel;
 
-    private CompositeDisposable _collisionDisposable;
+    private CommonCollisionModel _playerCollisionModel;
 
     public PlayerCollisionUseCase(CommonCollisionModel model)
     {
         _playerCollisionModel = model;
     }
 
-    public void BindCollision()
+    public Subject<BlockData> OnPlayerCollideBlock()
     {
-        
+        return _inGameCollisionModel.OnCollisionBlock.AddTo(_playerCollisionModel.gameObject);
+    }
+
+    public Subject<FriendData> OnPlayerCollideFriend()
+    {
+        return _inGameCollisionModel.OnCollisionFriend.AddTo(_playerCollisionModel.gameObject);
     }
 }
