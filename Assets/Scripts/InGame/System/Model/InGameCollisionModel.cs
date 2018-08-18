@@ -5,6 +5,9 @@ using UdonLib.Commons;
 using UniRx;
 using Thirty.Data;
 
+/// <summary>
+/// インゲームの衝突管理モデル
+/// </summary>
 public class InGameCollisionModel : InitializableMono
 {
     public Subject<FriendData> OnCollisionFriend;

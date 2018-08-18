@@ -3,6 +3,9 @@ using System.Collections;
 using UniRx;
 using Thirty.Data;
 
+/// <summary>
+/// プレイヤーの仲間周りのロジック
+/// </summary>
 public class PlayerFriendsUseCase
 {
     private FriendCollectionModel _friendModel;

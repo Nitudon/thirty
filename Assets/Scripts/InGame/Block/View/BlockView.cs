@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UdonLib.UI;
 
+/// <summary>
+/// 障害物のビュー
+/// </summary>
 public class BlockView : UIMono
 {
     [SerializeField]

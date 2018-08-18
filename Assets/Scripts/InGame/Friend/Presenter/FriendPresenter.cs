@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UdonLib.Commons;
 
+/// <summary>
+/// 仲間のロジックプレゼンター
+/// </summary>
 public class FriendPresenter : InitializableMono
 {
     [SerializeField]

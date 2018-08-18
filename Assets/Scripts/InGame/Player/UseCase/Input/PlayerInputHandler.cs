@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 using UniRx;
 using UdonLib.Commons;
 
+/// <summary>
+/// プレイヤーのタッチインプットロジック
+/// </summary>
 public class PlayerInputHandler : InitializableMono, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Subject<Vector2> _onBeginDragPosition;

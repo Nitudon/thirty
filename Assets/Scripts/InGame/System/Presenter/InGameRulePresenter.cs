@@ -5,6 +5,9 @@ using UniRx;
 using UdonLib.Commons;
 using Thirty.Parameter;
 
+/// <summary>
+/// インゲームのルールロジックプレゼンター
+/// </summary>
 public class InGameRulePresenter : InitializableMono
 {
     [SerializeField]

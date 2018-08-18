@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UdonLib.UI;
 
+/// <summary>
+/// 仲間のビュー
+/// </summary>
 public class FriendView : UIMono
 {
     [SerializeField]

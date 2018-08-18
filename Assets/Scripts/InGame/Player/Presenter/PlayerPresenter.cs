@@ -5,6 +5,9 @@ using UniRx;
 using UdonLib.Commons;
 using Zenject;
 
+/// <summary>
+/// Playerのロジックプレゼンター
+/// </summary>
 public class PlayerPresenter : InitializableMono
 {
     [Inject]

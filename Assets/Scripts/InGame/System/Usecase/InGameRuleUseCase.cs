@@ -5,6 +5,9 @@ using UniRx;
 using UniRx.Triggers;
 using Zenject;
 
+/// <summary>
+/// インゲームのルールロジック
+/// </summary>
 public class InGameRuleUseCase
 {
     [Inject]

@@ -7,6 +7,9 @@ using UniRx;
 using UniRx.Triggers;
 using Thirty.Enum;
 
+/// <summary>
+/// 共通衝突処理コンポーネント
+/// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class CommonCollisionModel : UdonBehaviour 
 {

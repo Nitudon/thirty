@@ -4,6 +4,9 @@ using UnityEngine;
 using UdonLib.Commons;
 using UniRx;
 
+/// <summary>
+/// プレイヤーのモデル
+/// </summary>
 public class PlayerModel : IInitializable
 {
     private FriendCollectionModel _friendModel;

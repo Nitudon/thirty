@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UdonLib.Commons;
+using UdonLib.UI;
 using UniRx;
 using Thirty.Data;
 
-public class BlockModel : UdonBehaviour
+/// <summary>
+/// 障害物のモデル 
+/// </summary>
+public class BlockModel : UIMono
 {
     private BlockData _friendData;
 }

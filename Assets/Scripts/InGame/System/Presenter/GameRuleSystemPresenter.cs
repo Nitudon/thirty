@@ -5,6 +5,9 @@ using System.Linq;
 using UnityEngine;
 using UdonLib.Commons;
 
+/// <summary>
+/// ゲームシステムの各所システムのプレゼンター
+/// </summary>
 public class GameRuleSystemPresenter : UdonBehaviour
 {
     [SerializeField]

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UdonLib.Commons;
 
+/// <summary>
+/// 障害物のロジックプレゼンター
+/// </summary>
 public class BlockPresenter : InitializableMono
 {
     [SerializeField]

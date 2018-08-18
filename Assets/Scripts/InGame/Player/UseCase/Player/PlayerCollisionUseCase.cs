@@ -3,6 +3,9 @@ using Thirty.Data;
 using UniRx;
 using Zenject;
 
+/// <summary>
+/// プレイヤーの衝突周りのロジック
+/// </summary>
 public class PlayerCollisionUseCase
 {
     [Inject]

@@ -1,4 +1,7 @@
-﻿namespace Thirty.Data
+﻿/// <summary>
+/// ゲーム内で使用するデータの構造定義
+/// </summary>
+namespace Thirty.Data
 {
     public class PlayerData
     {

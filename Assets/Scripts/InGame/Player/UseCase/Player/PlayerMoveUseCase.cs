@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UniRx;
 
+/// <summary>
+/// プレイヤーの移動ロジック
+/// </summary>
 public class PlayerMoveUseCase
 {
     private PlayerInputHandler _inputHandler;

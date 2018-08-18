@@ -2,6 +2,9 @@
 using UniRx;
 using Thirty.Data;
 
+/// <summary>
+/// プレイヤーの仲間リストのモデル
+/// </summary>
 public class FriendCollectionModel 
 {
     private readonly ReactiveCollection<FriendData> _friendList;

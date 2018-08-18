@@ -4,6 +4,9 @@ using UnityEngine;
 using UniRx;
 using UdonLib.Commons;
 
+/// <summary>
+/// インゲームのルールパラメータモデル
+/// </summary>
 public class InGameRuleModel : InitializableMono
 {
     private ReactiveProperty<float> _gameSpeed;
@@ -12,7 +15,7 @@ public class InGameRuleModel : InitializableMono
     private ReactiveProperty<float> _gameLife;
     public IReadOnlyReactiveProperty<float> GameLife => _gameLife;
 
-    private Subject<Unit> OnGameEnd;
+    public Subject<Unit> OnGameEnd;
 
     public override void Initialize()
     {

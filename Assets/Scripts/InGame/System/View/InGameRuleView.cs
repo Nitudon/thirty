@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UdonLib.UI;
 
+/// <summary>
+/// インゲームのルール周りのUIビュー
+/// </summary>
 public class InGameRuleView : UIMono
 {
     [SerializeField]
