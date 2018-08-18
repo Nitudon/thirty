@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UdonLib.Commons;
+using Zenject;
 
 public class PlayerPresenter : InitializableMono
 {
     [Inject]
+    private InGameRuleModel _inGameRuleModel;
 
     [SerializeField]
     private PlayerMonoView _view;
@@ -17,8 +19,11 @@ public class PlayerPresenter : InitializableMono
     [SerializeField]
     private CommonCollisionModel _collisionModel;
 
+    private FriendCollectionModel _friendCollectionModel;
+
     private PlayerMoveUseCase _movementUseCase;
     private PlayerCollisionUseCase _collisionUseCase;
+    private PlayerFriendsUseCase _friendUseCase;
 
     private CompositeDisposable _playerDisposable;
 
@@ -26,11 +31,14 @@ public class PlayerPresenter : InitializableMono
     {
         _playerDisposable = new CompositeDisposable();
 
-        _inputHandler.Initialize();    
+        _inputHandler.Initialize();
+
+        _friendCollectionModel = new FriendCollectionModel();
 
         _movementUseCase = new PlayerMoveUseCase(_inputHandler);
         _collisionUseCase = new PlayerCollisionUseCase(_collisionModel);
-
+        _friendUseCase = new PlayerFriendsUseCase(_friendCollectionModel);
+        
         _collisionModel.SetObserver();
 
         Bind();
@@ -38,8 +46,17 @@ public class PlayerPresenter : InitializableMono
 
     private void Bind()
     {
-        _movementUseCase.BindMovement(_view.RectTransform, _playerDisposable);
+        _movementUseCase.BindMovement(_view.RectTransform);
 
-        _collisionUseCase.OnPlayerCollideBlock().Subscribe().AddTo(_playerDisposable);
+        _collisionUseCase
+            .OnPlayerCollideBlock()
+            .Subscribe(_friendUseCase.BattleFriend)
+            .AddTo(_playerDisposable);
+
+        _friendUseCase
+            .FriendCount()
+            .First(count => count <= 0)
+            .Subscribe(_ => _inGameRuleModel.NotifyEndGame())
+            .AddTo(_playerDisposable);
     }
 }

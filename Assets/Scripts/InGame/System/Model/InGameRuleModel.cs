@@ -12,14 +12,23 @@ public class InGameRuleModel : InitializableMono
     private ReactiveProperty<float> _gameLife;
     public IReadOnlyReactiveProperty<float> GameLife => _gameLife;
 
+    private Subject<Unit> OnGameEnd;
+
     public override void Initialize()
     {
         _gameSpeed = new ReactiveProperty<float>();
         _gameLife = new ReactiveProperty<float>();
+
+        OnGameEnd = new Subject<Unit>();
     }
 
     public void DecrementLife()
     {
         _gameLife.Value -= _gameSpeed.Value;
+    }
+
+    public void NotifyEndGame()
+    {
+        OnGameEnd.OnNext(Unit.Default);
     }
 }
