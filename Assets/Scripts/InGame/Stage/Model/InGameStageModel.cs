@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InGameStageModel : MonoBehaviour {
+public class InGameStageModel
+{
+    public void GenerateEnemy()
+    {
+        
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void GenerateBlock()
+    {
+        
+    }
 }

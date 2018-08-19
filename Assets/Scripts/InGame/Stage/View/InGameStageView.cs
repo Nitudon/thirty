@@ -5,5 +5,5 @@ using UdonLib.UI;
 
 public class InGameStageView : UIMono
 {
-    
+
 }
