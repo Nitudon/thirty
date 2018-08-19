@@ -21,4 +21,14 @@ public class GameRuleSystemPresenter : UdonBehaviour
         _initializables.ForEach(x => x.Initialize());
         await Task.WhenAll(_asyncInitializables.Select(x => x.Initialize()));
     }
+
+    public void StartCoroutineWithSystem(IEnumerator coroutine)
+    {
+        StartCoroutine(SystemEnumerator(coroutine));
+    }
+
+    private IEnumerator SystemEnumerator(IEnumerator coroutine)
+    {
+        yield return coroutine;
+    }
 }
