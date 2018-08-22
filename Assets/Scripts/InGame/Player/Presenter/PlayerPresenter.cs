@@ -56,6 +56,11 @@ public class PlayerPresenter : InitializableMono
             .Subscribe(_friendUseCase.BattleFriend)
             .AddTo(_playerDisposable);
 
+        _collisionUseCase
+            .OnPlayerCollideFriend()
+            .Subscribe(_friendUseCase.GetFriend)
+            .AddTo(_playerDisposable);
+
         _friendUseCase
             .FriendCount()
             .First(count => count <= 0)

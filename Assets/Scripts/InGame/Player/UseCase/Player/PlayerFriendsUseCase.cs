@@ -28,4 +28,9 @@ public class PlayerFriendsUseCase
     {
         _friendModel.DecreaseFriend(battleCost.Count);
     }
+
+    public void GetFriend(FriendData friend)
+    {
+        _friendModel.AddFriend(friend);
+    }
 }
