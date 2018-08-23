@@ -20,6 +20,7 @@ public class InGameRulePresenter : InitializableMono
     public override void Initialize()
     {
         _useCase = new InGameRuleUseCase();
+        _disposable = new CompositeDisposable();
     }
 
     public void Bind()
