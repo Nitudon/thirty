@@ -8,7 +8,8 @@ using UdonLib.Commons;
 /// <summary>
 /// プレイヤーのタッチインプットロジック
 /// </summary>
-public class PlayerInputHandler : InitializableMono, IBeginDragHandler, IDragHandler, IEndDragHandler
+[RequireComponent(typeof(Graphics))]
+public class PlayerInputHandler : InitializableMono, ICommonDragHandler
 {
     private Subject<Vector2> _onBeginDragPosition;
     public Subject<Vector2> OnBeginDragPosition => _onBeginDragPosition;
