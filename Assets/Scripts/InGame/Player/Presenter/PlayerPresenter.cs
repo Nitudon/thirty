@@ -24,8 +24,8 @@ public class PlayerPresenter : InitializableMono
 
     private FriendCollectionModel _friendCollectionModel;
 
-    private PlayerMoveUseCase _movementUseCase;
-    private PlayerCollisionUseCase _collisionUseCase;
+    private IMoveUseCase _movementUseCase;
+    private ICollisionUseCase _collisionUseCase;
     private PlayerFriendsUseCase _friendUseCase;
 
     private CompositeDisposable _playerDisposable;

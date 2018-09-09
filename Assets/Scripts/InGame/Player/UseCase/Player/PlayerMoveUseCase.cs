@@ -4,7 +4,7 @@ using UniRx;
 /// <summary>
 /// プレイヤーの移動ロジック
 /// </summary>
-public class PlayerMoveUseCase
+public class PlayerMoveUseCase : IMoveUseCase
 {
     private PlayerInputHandler _inputHandler;
     private Vector2 _cachedPlayerAnchorPosition;
