@@ -10,8 +10,6 @@ using Zenject;
 /// </summary>
 public class PlayerPresenter : InitializableMono
 {
-    [Inject]
-    private InGameRuleModel _inGameRuleModel;
 
     [SerializeField]
     private PlayerMonoView _view;
@@ -25,7 +23,7 @@ public class PlayerPresenter : InitializableMono
     private FriendCollectionModel _friendCollectionModel;
 
     private IMoveUseCase _movementUseCase;
-    private ICollisionUseCase _collisionUseCase;
+    private PlayerCollisionUseCase _collisionUseCase;
     private PlayerFriendsUseCase _friendUseCase;
 
     private CompositeDisposable _playerDisposable;
@@ -41,7 +39,7 @@ public class PlayerPresenter : InitializableMono
         _movementUseCase = new PlayerMoveUseCase(_inputHandler);
         _collisionUseCase = new PlayerCollisionUseCase(_collisionModel);
         _friendUseCase = new PlayerFriendsUseCase(_friendCollectionModel);
-        
+
         _collisionModel.SetObserver();
 
         Bind();
@@ -64,7 +62,7 @@ public class PlayerPresenter : InitializableMono
         _friendUseCase
             .FriendCount()
             .First(count => count <= 0)
-            .Subscribe(_ => _inGameRuleModel.NotifyEndGame())
+            .Subscribe(_ => InGameManager.Instance.RuleModel.NotifyEndGame())
             .AddTo(_playerDisposable);
     }
 }

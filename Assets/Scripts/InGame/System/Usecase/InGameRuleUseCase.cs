@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UniRx;
+﻿using UniRx;
 using UniRx.Triggers;
 using Zenject;
 
@@ -24,8 +21,8 @@ public class InGameRuleUseCase
             .AddTo(_model);
     }
 
-    public ReactiveProperty<float> GameTimer()
+    public IReadOnlyReactiveProperty<float> GameTimer()
     {
-        return _model.GameLife.Where(life => _isPlay && life > 0).ToReactiveProperty().AddTo(_model);
+        return _model.GameLife.Where(life => _isPlay && life > 0).ToReactiveProperty();
     }
 }

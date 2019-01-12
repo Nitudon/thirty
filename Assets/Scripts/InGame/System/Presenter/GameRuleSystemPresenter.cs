@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UdonLib.Commons;
+using UniRx.Async;
 
 /// <summary>
 /// ゲームシステムの各所システムのプレゼンター
@@ -19,7 +20,7 @@ public class GameRuleSystemPresenter : UdonBehaviour
     protected override async void Start()
     {
         _initializables.ForEach(x => x.Initialize());
-        await Task.WhenAll(_asyncInitializables.Select(x => x.Initialize()));
+        await UniTask.WhenAll(_asyncInitializables.Select(x => x.Initialize()));
     }
 
     public void StartCoroutineWithSystem(IEnumerator coroutine)

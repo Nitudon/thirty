@@ -15,9 +15,9 @@ public class PlayerFriendsUseCase
         _friendModel = model;
     }
 
-    public ReactiveProperty<int> FriendCount()
+    public IReadOnlyReactiveProperty<int> FriendCount()
     {
-        return 
+        return
             _friendModel
                 .FriendList
                 .ObserveCountChanged()

@@ -8,9 +8,6 @@ using Zenject;
 /// </summary>
 public class PlayerCollisionUseCase
 {
-    [Inject]
-    private InGameCollisionModel _inGameCollisionModel;
-
     private CommonCollisionModel _playerCollisionModel;
 
     public PlayerCollisionUseCase(CommonCollisionModel model)
@@ -20,11 +17,11 @@ public class PlayerCollisionUseCase
 
     public Subject<BlockData> OnPlayerCollideBlock()
     {
-        return _inGameCollisionModel.OnCollisionBlock.AddTo(_playerCollisionModel.gameObject);
+        return InGameManager.Instance.CollisionModel.OnCollisionBlock.AddTo(_playerCollisionModel.gameObject);
     }
 
     public Subject<FriendData> OnPlayerCollideFriend()
     {
-        return _inGameCollisionModel.OnCollisionFriend.AddTo(_playerCollisionModel.gameObject);
+        return InGameManager.Instance.CollisionModel.OnCollisionFriend.AddTo(_playerCollisionModel.gameObject);
     }
 }
